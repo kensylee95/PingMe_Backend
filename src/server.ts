@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(cookieParser())
 
 const crossOriginSetup:cors.CorsOptions = {
-    origin: process.env.CLIENT_ORIGIN!,
+    origin: process.env.CLIENT_ORIGIN||"",
     methods: ['GET', 'POST',],
     credentials: true,
 };
