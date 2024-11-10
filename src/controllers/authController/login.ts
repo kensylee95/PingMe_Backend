@@ -27,7 +27,7 @@ const loginUser: (req: Request, res: Response) => Promise<any> = async (req, res
         const token = generateToken(stripeUserJson._id)
         //set cookies
       // const cookies = new Cookies(req, res, {keys:[process.env.JWT_SECRET ||""]});
-        res.cookie('authToken', token,cookieOptions)
+        res.cookie('authToken', token, cookieOptions)
         //response
         const response = {message:"Registration Completed", response:{username, _id:user._id}}
         //return response
