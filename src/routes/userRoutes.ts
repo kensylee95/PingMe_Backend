@@ -1,6 +1,6 @@
 import express from 'express';
 import * as userController from "@controllers/userController"
-import authMiddleware from 'src/middlewares/authMiddleware';
+import authMiddleware from '@middlewares/authMiddleware';
 const router = express.Router();
 router.get("/id/:id", authMiddleware, userController.getUser);
 router.get("/username/:username", authMiddleware, userController.getUserByUsername);

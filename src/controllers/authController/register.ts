@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import bcrypt from "bcrypt"
 import { generateToken } from "@utils/jwt";
 import CustomErrorClass from "@utils/HttpError";
-import { JsonRequestError } from "src/types";
+import { JsonRequestError } from "@src/types"
 import User, { UserModelType } from "@models/User";
 import { FlattenMaps } from "mongoose";
 

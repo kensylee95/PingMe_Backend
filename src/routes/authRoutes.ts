@@ -3,7 +3,7 @@ import loginUser from '@controllers/authController/login';
 import { logout } from '@controllers/authController/logout';
 import registerUser from '@controllers/authController/register';
 import express from 'express';
-import authMiddleware from 'src/middlewares/authMiddleware';
+import authMiddleware from '@middlewares/authMiddleware';
 const router = express.Router();
 
 router.post("/register", registerUser);

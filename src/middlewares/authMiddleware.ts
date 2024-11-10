@@ -2,7 +2,7 @@ import CustomErrorClass from "@utils/HttpError";
 import Cookies from "cookies";
 import { NextFunction,Request,Response} from "express";
 import jwt from "jsonwebtoken"
-import { JsonRequestError } from "src/types";
+import { JsonRequestError } from "@src/types"
 
 const authenticateJWT:(request:Request, response:Response, next:NextFunction)=>any = (req, res, next)=>{
    try{ const cookies = new Cookies(req, res)
