@@ -5,6 +5,7 @@ import CustomErrorClass from "@utils/HttpError";
 import { JsonRequestError } from "@src/types"
 import User, { UserModelType } from "@models/User";
 import { FlattenMaps } from "mongoose";
+import { cookieOptions } from "@src/utils/cookieOptions";
 
 
 interface ResponseType {
@@ -28,11 +29,7 @@ interface ResponseType {
         const stripeUserJson = insertedUserStripped.toJSON();
         const token = generateToken(stripeUserJson._id)
         //const cookies = new Cookies(req, res, {keys:[process.env.JWT_SECRET ||""]});
-        res.cookie('authToken', token,{
-            httpOnly:true,
-            secure:process.env.NODE_ENV==='production',
-            sameSite: "lax"
-        })
+        res.cookie('authToken', token, cookieOptions)
         const response:ResponseType = {message:"Registration Completed", response:{user:stripeUserJson}}
         console.log(response)
         res.status(201).json({...response})

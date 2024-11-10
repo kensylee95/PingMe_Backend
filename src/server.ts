@@ -50,7 +50,6 @@ app.use("/api/users", userRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/messages", messageRoutes);
 server.listen(port, () => {
-    console.log(`${crossOriginSetup.origin?.toString()}}`)
     console.log(`[Server]: Server is running at http://localhost:${port}`);
 });
 

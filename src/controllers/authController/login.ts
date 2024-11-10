@@ -3,6 +3,7 @@ import bcrypt from "bcrypt"
 import User, { UserModelType } from "@models/User";
 import CustomErrorClass from "@utils/HttpError";;
 import { generateToken } from "@utils/jwt";
+import { cookieOptions } from "@src/utils/cookieOptions";
 const loginUser: (req: Request, res: Response) => Promise<any> = async (req, res) => {
     const { username, password }: { username: string, password: string } = req.body;
     try {
@@ -26,11 +27,7 @@ const loginUser: (req: Request, res: Response) => Promise<any> = async (req, res
         const token = generateToken(stripeUserJson._id)
         //set cookies
       // const cookies = new Cookies(req, res, {keys:[process.env.JWT_SECRET ||""]});
-        res.cookie('authToken', token,{
-            httpOnly:true,
-            secure:process.env.NODE_ENV==='production',
-            sameSite: "lax"
-        })
+        res.cookie('authToken', token,cookieOptions)
         //response
         const response = {message:"Registration Completed", response:{username, _id:user._id}}
         //return response
