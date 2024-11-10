@@ -50,6 +50,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/chats", chatRoutes);
 app.use("/api/messages", messageRoutes);
 server.listen(port, () => {
+    console.log(`${process.env.CLIENT_ORIGIN||""}`)
     console.log(`[Server]: Server is running at http://localhost:${port}`);
 });
 
